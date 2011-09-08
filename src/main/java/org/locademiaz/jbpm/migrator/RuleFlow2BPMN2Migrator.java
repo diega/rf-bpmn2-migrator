@@ -21,7 +21,7 @@ public class RuleFlow2BPMN2Migrator {
         ((PackageBuilderConfiguration) conf).initSemanticModules();
         ((PackageBuilderConfiguration) conf).addSemanticModule( new ProcessSemanticModule() );
         SemanticModules semanticModules = ((PackageBuilderConfiguration) conf).getSemanticModules();
-        XmlProcessReader processReader = new XmlProcessReader(semanticModules );
+        XmlProcessReader processReader = new XmlProcessReader(semanticModules, Thread.currentThread().getContextClassLoader());
         RuleFlowProcess p = (RuleFlowProcess) processReader.read( ruleFlowInputStream );
         bpmn2OutputStream.write( XmlBPMNProcessDumper.INSTANCE.dump(p).getBytes() );
     }
