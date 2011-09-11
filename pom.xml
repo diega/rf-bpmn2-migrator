@@ -10,6 +10,11 @@
       <version>5.1.0.Final</version>
     </dependency>
     <dependency>
+      <groupId>net.sf.jopt-simple</groupId>
+      <artifactId>jopt-simple</artifactId>
+      <version>3.3</version>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.8.2</version>
@@ -43,6 +48,14 @@
         <configuration>
           <source>1.6</source>
           <target>1.6</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2</version>
+        <configuration>
+          <mainClass>org.locademiaz.jbpm.migrator.RuleFlowMigratorCli</mainClass>
         </configuration>
       </plugin>
     </plugins>
