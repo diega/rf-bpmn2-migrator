@@ -2,7 +2,6 @@ package org.locademiaz.jbpm.migrator;
 
 import java.io.*;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
 import org.drools.builder.KnowledgeBuilder;
@@ -11,7 +10,6 @@ import org.drools.builder.ResourceType;
 import org.drools.io.ResourceFactory;
 import org.drools.process.instance.WorkItemHandler;
 import org.drools.runtime.StatefulKnowledgeSession;
-import org.drools.runtime.process.ProcessInstance;
 import org.drools.runtime.process.WorkItem;
 import org.drools.runtime.process.WorkItemManager;
 import org.junit.Assert;
@@ -52,11 +50,11 @@ public class MigrationTest {
             }
         );
 
-        final ByteOutputStream bpmn2OutputStream = new ByteOutputStream();
+        final ByteArrayOutputStream bpmn2OutputStream = new ByteArrayOutputStream();
         new RuleFlow2BPMN2Migrator().convertToBpmn2(MigrationTest.class.getResourceAsStream(processFileName), bpmn2OutputStream);
 
         startProcessWithWorkItem(
-            bpmn2OutputStream.newInputStream(),
+            new ByteArrayInputStream(bpmn2OutputStream.toByteArray()),
             ResourceType.BPMN2,
             processId,
             workItemName,
