@@ -10,19 +10,10 @@
   <nodes>
     <start id="1" name="Start" />
     <workItem id="2" name="Task" >
-      <work name="Human Task" >
-        <parameter name="ActorId" >
-          <type name="org.drools.process.core.datatype.impl.type.StringDataType" />
-        </parameter>
-        <parameter name="TaskName" >
+      <work name="Some Work" >
+        <parameter name="workItemParam1" >
           <type name="org.drools.process.core.datatype.impl.type.StringDataType" />
           <value>Task</value>
-        </parameter>
-        <parameter name="Comment" >
-          <type name="org.drools.process.core.datatype.impl.type.StringDataType" />
-        </parameter>
-        <parameter name="Priority" >
-          <type name="org.drools.process.core.datatype.impl.type.StringDataType" />
         </parameter>
       </work>
     </workItem>
